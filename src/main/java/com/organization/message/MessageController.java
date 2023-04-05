@@ -18,7 +18,6 @@ public class MessageController {
 
     @Autowired
     MessageRepository repo;
-
     @GetMapping(value = "/")
     public String getMessage() {
         StringBuilder result = new StringBuilder(BE_SUCCESS_MESSAGE).append(System.lineSeparator());
@@ -35,8 +34,8 @@ public class MessageController {
         return result.toString();
     }
 
-    @GetMapping(value = "/{message}")
-    public String saveMessage(@PathVariable String message) {
-        return "Message `%s` was saved successfully".formatted(repo.save(new Message(message)).getMessage());
-    }
+//    @GetMapping(value = "/{message}")
+//    public String saveMessage(@PathVariable String message) {
+//        return "Message `%s` was saved successfully".formatted(repo.save(new Message(message)).getMessage());
+//    }
 }
