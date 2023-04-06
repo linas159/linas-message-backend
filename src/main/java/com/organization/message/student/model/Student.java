@@ -11,8 +11,26 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    private String surname;
+    private Integer salary;
 
     public Student(){};
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public Integer getSalary() {
+        return salary;
+    }
 
     public Integer getId() {
         return id;

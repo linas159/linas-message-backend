@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("students")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class StudentController {
 
     @Autowired
@@ -24,4 +25,16 @@ public class StudentController {
     @PostMapping
     public void save (@RequestBody Student student){repository.save(student);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteStudent(@PathVariable final Integer id){
+        repository.deleteById(id);
+    }
+
+    @GetMapping("/first")
+    public Student getFirst() { return repository.getFirstStudent().get(0); }
+
+    @GetMapping("/byname")
+    public List<Student>  getByName(@RequestParam() String name) {return  repository.getByName(name);}
+
 }
